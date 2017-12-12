@@ -1,5 +1,5 @@
 {
-	"name": "ReactNativeNavigation",
+	"name": "ReactRouterExample",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -10,7 +10,9 @@
 	"dependencies": {
 		"react": "16.0.0",
 		"react-native": "0.50.4",
-		"react-native-navigation": "1.1.300",
+		"react-native-elements": "0.18.5",
+		"react-native-navigation": "1.1.305",
+		"react-native-vector-icons": "4.4.2",
 		"react-redux": "5.0.6",
 		"redux": "3.7.2",
 		"redux-thunk": "2.2.0"
