@@ -13,31 +13,31 @@ export default class Login extends Component {
             {
                 label: 'Clients',
                 screen: 'tab',
-                icon: require('../img/list.png'),
+                icon: require('../../assets/icons/list.png'),
                 title: 'Client'
             },
             {
                 label: 'Actions',
                 screen: 'tab1',
-                icon: require('../img/list.png'),
+                icon: require('../../assets/icons/list.png'),
                 title: 'Tab 1'
             },
             {
                 label: 'Actions',
                 screen: 'tab2',
-                icon: require('../img/list.png'),
+                icon: require('../../assets/icons/list.png'),
                 title: 'Tab 2'
             },
             {
                 label: 'Actions',
                 screen: 'tab3',
-                icon: require('../img/list.png'),
+                icon: require('../../assets/icons/list.png'),
                 title: 'Tab 3'
             },
             {
                 label: 'Actions',
                 screen: 'tab4',
-                icon: require('../img/list.png'),
+                icon: require('../../assets/icons/list.png'),
                 title: 'Tab 4'
             }
         ];

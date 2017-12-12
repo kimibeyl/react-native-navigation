@@ -1,20 +1,19 @@
 'use strict';
+
 import buildActionName from '../redux/build-action-name';
 
 const reducerName = 'navigation';
 
-export const USER_LOGGED_IN = buildActionName(reducerName, 'USER_LOGGED_IN');
+export const SET_BACKGROUND_COLOR = buildActionName(reducerName, 'SET_BACKGROUND_COLOR');
 
+// TODO: Add fleshed out navigation reducer here
 const initialSate = {
-    user: {
-        firstName: '',
-        lastName: ''
-    }
+    backgroundColor: '#f0f'
 };
 
 export default function(state = initialSate, action) {
     switch (action.type) {
-        case USER_LOGGED_IN:
+        case SET_BACKGROUND_COLOR:
             return {
                 ...state
             };

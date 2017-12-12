@@ -1,13 +1,11 @@
 import { Navigation } from 'react-native-navigation';
 
-import Tab from '../tabs/tab';
-import Tab1 from '../tabs/tab1';
-import Tab2 from '../tabs/tab2';
-import Tab3 from '../tabs/tab3';
-import Tab4 from '../tabs/tab4';
-import Login from '../login/login-view';
-
-//import BottomTabsSideMenu from './BottomTabsSideMenu';
+import Tab from '../components/tabs/tab';
+import Tab1 from '../components/tabs/tab1';
+import Tab2 from '../components/tabs/tab2';
+import Tab3 from '../components/tabs/tab3';
+import Tab4 from '../components/tabs/tab4';
+import Login from '../components/login/login.view';
 
 // register all screens of the app (including internal ones)
 export function registerScreens(store, Provider) {
@@ -17,5 +15,4 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('tab2', () => Tab2, store, Provider);
     Navigation.registerComponent('tab3', () => Tab3, store, Provider);
     Navigation.registerComponent('tab4', () => Tab4, store, Provider);
-    //Navigation.registerComponent('BottomTabsSideMenu', () => BottomTabsSideMenu, store, Provider);
 }

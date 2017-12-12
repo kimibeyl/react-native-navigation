@@ -1,5 +1,5 @@
 'use strict';
-import buildActionName from '../redux/build-action-name';
+import buildActionName from '../../redux/build-action-name';
 
 const reducerName = 'login';
 
