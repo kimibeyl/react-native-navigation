@@ -8,13 +8,13 @@ import store from './src/redux/store';
 
 registerScreens(store, Provider);
 
+const navigatorStyle = {
+    statusBarColor:'#00164e',
+};
+
 Navigation.startSingleScreenApp({
   screen: {
     screen: 'login',
     navigatorStyle
   }
-})
-
-const navigatorStyle = {
-  statusBarColor:'#00164e',
-};
+});

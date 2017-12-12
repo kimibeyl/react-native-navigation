@@ -11,9 +11,7 @@ function mapStateToProps({ loginReducer }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(
-        dispatch
-    );
+    return bindActionCreators(dispatch);
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

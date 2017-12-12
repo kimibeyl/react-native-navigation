@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"android": "node node_modules/react-native/local-cli/cli.js run-android ",
-		"test": "jest"
+		"android": "node node_modules/react-native/local-cli/cli.js run-android",
+		"test": "jest",
+		"prettier": "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100 \"src/**/*.js\""
 	},
 	"dependencies": {
 		"react": "16.0.0",
@@ -20,6 +21,7 @@
 	"devDependencies": {
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
+		"prettier": "1.8.1",
 		"jest": "21.2.1",
 		"react-test-renderer": "16.0.0"
 	},

@@ -11,10 +11,10 @@ const initialSate = {
         lastName: ''
     },
     showSpinner: false,
-    errorMessage: '',
+    errorMessage: ''
 };
 
-export default function (state = initialSate, action) {
+export default function(state = initialSate, action) {
     switch (action.type) {
         case SUBMITTING_CREDENTIALS:
             return { ...state, showSpinner: true, errorMessage: '' };

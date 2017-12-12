@@ -12,7 +12,7 @@ const initialSate = {
     }
 };
 
-export default function (state = initialSate, action) {
+export default function(state = initialSate, action) {
     switch (action.type) {
         case USER_LOGGED_IN:
             return {
