@@ -3,66 +3,10 @@ import { View, Text, TouchableOpacity, StyleSheet, TextInput, Platform } from 'r
 import { Navigation } from 'react-native-navigation';
 
 export default class Login extends Component {
-    static navigatorStyle = {
-        navBarHidden: true,
-        statusBarColor: '#00164e'
-    };
+    constructor(props) {
+        super(props);
 
-    navigation() {
-        const tabs = [
-            {
-                label: 'Clients',
-                screen: 'tab',
-                icon: require('../../assets/icons/list.png'),
-                title: 'Client'
-            },
-            {
-                label: 'Actions',
-                screen: 'tab1',
-                icon: require('../../assets/icons/list.png'),
-                title: 'Tab 1'
-            },
-            {
-                label: 'Actions',
-                screen: 'tab2',
-                icon: require('../../assets/icons/list.png'),
-                title: 'Tab 2'
-            },
-            {
-                label: 'Actions',
-                screen: 'tab3',
-                icon: require('../../assets/icons/list.png'),
-                title: 'Tab 3'
-            },
-            {
-                label: 'Actions',
-                screen: 'tab4',
-                icon: require('../../assets/icons/list.png'),
-                title: 'Tab 4'
-            }
-        ];
-
-        Navigation.startTabBasedApp({
-            tabs,
-            animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
-            tabsStyle: {
-                tabBarBackgroundColor: '#00164e',
-                tabBarButtonColor: '#ffffff',
-                tabBarSelectedButtonColor: '#fff',
-                tabFontFamily: 'BioRhyme-Bold',
-                statusBarColor: '#00164e'
-            },
-            appStyle: {
-                tabBarBackgroundColor: '#00164e',
-                navBarButtonColor: '#ffffff',
-                tabBarButtonColor: '#ffffff',
-                navBarTextColor: '#ffffff',
-                tabBarSelectedButtonColor: '#fff',
-                navigationBarColor: '#00164e',
-                navBarBackgroundColor: '#00164e',
-                tabFontFamily: 'BioRhyme-Bold'
-            }
-        });
+        this.onLogin = this.onLogin.bind(this);
     }
 
     render() {
@@ -81,18 +25,26 @@ export default class Login extends Component {
                     placeholder="Password"
                 />
                 <View>
-                    <TouchableOpacity onPress={this.navigation} accessibilityLabel="Sign In Button">
+                    <TouchableOpacity onPress={this.onLogin} accessibilityLabel="Sign In Button">
                         <Text>SIGN IN</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         );
     }
+
+    onLogin() {
+        this.props.navigator.push({
+            screen: 'home',
+            title: 'Home'
+        });
+    }
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#c1c1c1',
+        justifyContent: 'center',
         flex: 1
     }
 });

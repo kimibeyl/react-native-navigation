@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Platform } from 'react-native';
+import {Platform } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
-export default class Login extends Component {
-    static navigatorStyle = {
-        navBarHidden: true,
-        statusBarColor: '#00164e'
-    };
+export default class Home extends Component {
 
-    navigation() {
+    render() {
         const tabs = [
             {
                 label: 'Clients',
@@ -46,11 +42,11 @@ export default class Login extends Component {
             tabs,
             animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
             tabsStyle: {
-                tabBarBackgroundColor: '#00164e',
-                tabBarButtonColor: '#ffffff',
+                tabBarButtonColor: '#fff',
                 tabBarSelectedButtonColor: '#fff',
+                tabBarBackgroundColor: '#00164e',
                 tabFontFamily: 'BioRhyme-Bold',
-                statusBarColor: '#00164e'
+                statusBarColor: '#0f0'
             },
             appStyle: {
                 tabBarBackgroundColor: '#00164e',
@@ -63,36 +59,7 @@ export default class Login extends Component {
                 tabFontFamily: 'BioRhyme-Bold'
             }
         });
-    }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>Liberty InTouch</Text>
-                <Text>Sign in using your Liberty{'\n'}UACFID and password.</Text>
-                <TextInput
-                    underlineColorAndroid="transparent"
-                    placeholderTextColor="#c1c1c1"
-                    placeholder="UACFID"
-                />
-                <TextInput
-                    underlineColorAndroid="transparent"
-                    placeholderTextColor="#c1c1c1"
-                    placeholder="Password"
-                />
-                <View>
-                    <TouchableOpacity onPress={this.navigation} accessibilityLabel="Sign In Button">
-                        <Text>SIGN IN</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        );
+        return null;
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#c1c1c1',
-        flex: 1
-    }
-});
