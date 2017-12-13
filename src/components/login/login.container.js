@@ -1,17 +1,19 @@
 'use strict';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Login from './login.view';
+
+import {signIn} from './login.reducer';
+import LoginView from './login.view';
 
 function mapStateToProps({ loginReducer }) {
     return {
-        errorMessage: loginReducer.errorMessage,
-        showSpinner: loginReducer.showSpinner
+        isLoggedIn: loginReducer.isLoggedIn,
+        showLoadingScreen: loginReducer.showLoadingScreen
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(dispatch);
+    return bindActionCreators({signIn},dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginView);

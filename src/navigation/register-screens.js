@@ -1,6 +1,6 @@
 import { Navigation } from 'react-native-navigation';
 
-import Login from '../components/login/login.view';
+import Login from '../components/login/login.container';
 import Home from '../components/home/home.view';
 import Tab from '../components/clients/clients.view';
 import Tab1 from '../components/tabs/tab1';

@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
 
-        this.onLogin = this.onLogin.bind(this);
+        this.login = this.login.bind(this);
+        this.navigateHome = this.navigateHome.bind(this);
     }
 
     render() {
+        if (this.props.isLoggedIn) {
+            return this.navigateHome();
+        }
         return (
             <View style={styles.container}>
                 <Text style={styles.textHeader}>Liberty InTouch</Text>
@@ -28,21 +33,24 @@ export default class Login extends Component {
                     style={styles.textInput}
                 />
                 <TouchableOpacity
-                    onPress={this.onLogin}
+                    onPress={this.login}
                     title="SIGN IN"
                     color="#00164e"
                     accessibilityLabel="Sign In Button"
                     style={styles.button}
                 >
-                    <Text style={styles.buttonText}>
-                        SIGN IN
-                    </Text>
+                    <Text style={styles.buttonText}>SIGN IN</Text>
                 </TouchableOpacity>
+                <Spinner visible={this.props.showLoadingScreen} overlayColor="rgba(0,22,78,0.7)" />
             </View>
         );
     }
 
-    onLogin() {
+    login() {
+        this.props.signIn().then(this.navigateHome);
+    }
+
+    navigateHome() {
         this.props.navigator.push({
             screen: 'home',
             title: 'Home'
@@ -89,7 +97,10 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         borderColor: '#d0d0d0',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowRadius: 3,
+        shadowOffset: { width: 5, height: 5 },
+        shadowColor: '#000'
     },
     buttonText: {
         fontSize: 20,
