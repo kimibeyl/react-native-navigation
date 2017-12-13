@@ -7,19 +7,8 @@ const SHOW_SEARCHBAR = buildActionName(reducerName, 'SHOW_SEARCHBAR');
 const HIDE_SEARCHBAR = buildActionName(reducerName, 'HIDE_SEARCHBAR');
 
 const initialSate = {
-    showLoadingScreen: false,
-    isShowingSearchBar: false
+    showSearchBar: false
 };
-
-export function toggleSearchBar() {
-    return (dispatch, getState) => {
-        const { isShowingSearchBar } = getState().clientsReducer;
-        if (isShowingSearchBar) {
-            return dispatch(hideSearchBarAction());
-        }
-        return dispatch(showSearchBarAction());
-    };
-}
 
 export function showSearchBarAction() {
     return {
@@ -36,9 +25,9 @@ export function hideSearchBarAction() {
 export default (state = initialSate, action) => {
     switch (action.type) {
         case SHOW_SEARCHBAR:
-            return { ...state, isShowingSearchBar: true };
+            return { ...state, showSearchBar: true };
         case HIDE_SEARCHBAR:
-            return { ...state, isShowingSearchBar: false };
+            return { ...state, showSearchBar: false };
         default:
             return state;
     }

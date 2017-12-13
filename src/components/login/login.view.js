@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
+
+import LoadingScreen from '../loading-screen/loading-screen.container';
 
 export default class Login extends Component {
     constructor(props) {
@@ -12,7 +13,8 @@ export default class Login extends Component {
 
     render() {
         if (this.props.isLoggedIn) {
-            return this.navigateHome();
+            this.navigateHome();
+            return null;
         }
         return (
             <View style={styles.container}>
@@ -41,7 +43,7 @@ export default class Login extends Component {
                 >
                     <Text style={styles.buttonText}>SIGN IN</Text>
                 </TouchableOpacity>
-                <Spinner visible={this.props.showLoadingScreen} overlayColor="rgba(0,22,78,0.7)" />
+                <LoadingScreen/>
             </View>
         );
     }
