@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput } from 'react-native';
 import { Header, SearchBar } from 'react-native-elements';
 
-export default class Tab extends Component {
+export default class Clients extends Component {
     constructor(props) {
         super(props);
         this.state = {
