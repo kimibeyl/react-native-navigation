@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
 export default class Home extends Component {
-
     render() {
         const tabs = [
             {
@@ -45,8 +44,7 @@ export default class Home extends Component {
                 tabBarButtonColor: '#fff',
                 tabBarSelectedButtonColor: '#fff',
                 tabBarBackgroundColor: '#00164e',
-                tabFontFamily: 'BioRhyme-Bold',
-                statusBarColor: '#0f0'
+                tabFontFamily: 'BioRhyme-Bold'
             },
             appStyle: {
                 tabBarBackgroundColor: '#00164e',
@@ -56,7 +54,8 @@ export default class Home extends Component {
                 tabBarSelectedButtonColor: '#fff',
                 navigationBarColor: '#00164e',
                 navBarBackgroundColor: '#00164e',
-                tabFontFamily: 'BioRhyme-Bold'
+                tabFontFamily: 'BioRhyme-Bold',
+                statusBarColor: '#00164e'
             }
         });
 

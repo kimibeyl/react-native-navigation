@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Platform } from 'react-native';
-import { Navigation } from 'react-native-navigation';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
 export default class Login extends Component {
     constructor(props) {
@@ -12,22 +11,28 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Liberty InTouch</Text>
-                <Text>Sign in using your Liberty{'\n'}UACFID and password.</Text>
+                <Text style={styles.text}>Liberty InTouch</Text>
+                <Text style={styles.text}>
+                    Sign in using your Liberty{'\n'}UACFID and password.
+                </Text>
                 <TextInput
                     underlineColorAndroid="transparent"
-                    placeholderTextColor="#c1c1c1"
+                    placeholderTextColor="#afafaf"
                     placeholder="UACFID"
+                    style={styles.textInput}
                 />
                 <TextInput
                     underlineColorAndroid="transparent"
-                    placeholderTextColor="#c1c1c1"
+                    placeholderTextColor="#afafaf"
                     placeholder="Password"
+                    style={styles.textInput}
                 />
-                <View>
-                    <TouchableOpacity onPress={this.onLogin} accessibilityLabel="Sign In Button">
-                        <Text>SIGN IN</Text>
-                    </TouchableOpacity>
+                <View style={styles.button}>
+                    <Button
+                        onPress={this.onLogin}
+                        title="SIGN IN"
+                        accessibilityLabel="Sign In Button"
+                    />
                 </View>
             </View>
         );
@@ -43,8 +48,27 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#c1c1c1',
+        flex: 1,
         justifyContent: 'center',
-        flex: 1
+        backgroundColor: '#f5f5f5'
+    },
+    text: {
+        textAlign: 'center',
+        marginVertical: 20,
+        fontSize: 20
+    },
+    textInput: {
+        textAlign: 'center',
+        marginHorizontal: 40,
+        marginVertical: 5,
+        backgroundColor: '#e0e0e0',
+        borderWidth: 1,
+        borderRadius: 3,
+        borderColor: '#d0d0d0'
+    },
+    button: {
+        marginHorizontal: 40,
+        marginVertical: 5,
+        fontSize: 20
     }
 });

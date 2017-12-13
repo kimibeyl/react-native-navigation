@@ -5,8 +5,4 @@ import ReduxThunk from 'redux-thunk';
 
 import reducers from './reducer';
 
-export default createStore(
-    reducers,
-    {},
-    applyMiddleware(ReduxThunk)
-);
+export default createStore(reducers, {}, applyMiddleware(ReduxThunk));
