@@ -7,9 +7,9 @@ export default class Home extends Component {
         const tabs = [
             {
                 label: 'Clients',
-                screen: 'tab',
+                screen: 'clients',
                 icon: require('../../assets/icons/list.png'),
-                title: 'Client'
+                title: 'Clients'
             },
             {
                 label: 'Actions',

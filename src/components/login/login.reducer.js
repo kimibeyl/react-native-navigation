@@ -13,16 +13,16 @@ const initialSate = {
 
 export function signIn() {
     console.log('MEMES');
-    return (dispatch) => {
+    return dispatch => {
         dispatch(submittingCredentialsAction());
         return new Promise((resolve, reject) => {
             // Mock API call
-            setTimeout(function () {
+            setTimeout(function() {
                 dispatch(userAuthenticatedAction());
-                resolve()
+                resolve();
             }, 2000);
         });
-    }
+    };
 }
 
 function submittingCredentialsAction() {
@@ -37,7 +37,7 @@ function userAuthenticatedAction() {
     };
 }
 
-export default function(state = initialSate, action) {
+export default (state = initialSate, action) => {
     switch (action.type) {
         case SUBMITTING_CREDENTIALS:
             return { ...state, showLoadingScreen: true };
@@ -46,4 +46,4 @@ export default function(state = initialSate, action) {
         default:
             return state;
     }
-}
+};

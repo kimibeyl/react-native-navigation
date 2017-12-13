@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class Login extends Component {
@@ -18,7 +18,7 @@ export default class Login extends Component {
             <View style={styles.container}>
                 <Text style={styles.textHeader}>Liberty InTouch</Text>
                 <Text style={styles.textSubHeader}>
-                    Sign in using your Liberty{'\n'}UACFID and password.
+                    Sign in using your Liberty{'\n'}UACFID and password
                 </Text>
                 <TextInput
                     underlineColorAndroid="transparent"

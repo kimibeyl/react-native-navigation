@@ -1,23 +1,23 @@
 'use strict';
-
 import buildActionName from '../redux/build-action-name';
 
 const reducerName = 'navigation';
 
-export const SET_BACKGROUND_COLOR = buildActionName(reducerName, 'SET_BACKGROUND_COLOR');
+const SOME_ACTION = buildActionName(reducerName, 'SOME_ACTION');
 
-// TODO: Add fleshed out navigation reducer here
-const initialSate = {
-    backgroundColor: '#f0f'
-};
+const initialSate = {};
 
-export default function(state = initialSate, action) {
+function someAction() {
+    return {
+        type: SOME_ACTION
+    };
+}
+
+export default (state = initialSate, action) => {
     switch (action.type) {
-        case SET_BACKGROUND_COLOR:
-            return {
-                ...state
-            };
+        case SOME_ACTION:
+            return { ...state };
         default:
             return state;
     }
-}
+};
