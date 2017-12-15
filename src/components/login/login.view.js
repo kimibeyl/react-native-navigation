@@ -25,7 +25,7 @@ export default class Login extends Component {
             return null;
         }
         return (
-            <View style={styles.container}>
+            <View style={styles.screenContainer}>
                 <Text style={styles.textHeader}>Liberty InTouch</Text>
                 <Text style={styles.textSubHeader}>
                     Sign in using your Liberty{'\n'}UACFID and password
@@ -68,7 +68,7 @@ Login.propTypes = {
 };
 
 const styles = StyleSheet.create({
-    container: {
+    screenContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

@@ -4,7 +4,13 @@ import { ActivityIndicator } from 'react-native';
 
 export default class LoadingSpinner extends Component {
     render() {
-        return <ActivityIndicator color="#00164e" animating={this.props.showLoadingSpinner} />;
+        return (
+            <ActivityIndicator
+                color="#00164e"
+                size="large"
+                animating={this.props.showLoadingSpinner}
+            />
+        );
     }
 }
 

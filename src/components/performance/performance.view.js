@@ -24,7 +24,9 @@ export default class Performance extends Component {
     }
 
     render() {
-        return (
+        return this.props.isLoading ? (
+            <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+        ) : (
             <View>
                 <Header
                     backgroundColor="#00164e"
@@ -36,13 +38,12 @@ export default class Performance extends Component {
                 />
                 <TouchableOpacity
                     onPress={this.someMethod}
-                    title="Loading Spinner Test"
+                    title="Spinner Test"
                     color="#00164e"
                     style={styles.button}
                 >
-                    <Text style={styles.buttonText}>Loading Spinner Test</Text>
+                    <Text style={styles.buttonText}>Spinner Test</Text>
                 </TouchableOpacity>
-                <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
             </View>
         );
     }

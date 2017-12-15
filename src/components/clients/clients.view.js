@@ -11,6 +11,7 @@ export default class Clients extends Component {
 
         this.someMethod = this.someMethod.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
+        this.renderScreen = this.renderScreen.bind(this);
     }
 
     static navigatorStyle = {
@@ -27,15 +28,7 @@ export default class Clients extends Component {
         return (
             <View>
                 {this.renderHeader()}
-                <TouchableOpacity
-                    onPress={this.someMethod}
-                    title="Loading Screen Test"
-                    color="#00164e"
-                    style={styles.button}
-                >
-                    <Text style={styles.buttonText}>Loading Screen Test</Text>
-                </TouchableOpacity>
-                <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+                {this.renderScreen()}
             </View>
         );
     }
@@ -56,6 +49,20 @@ export default class Clients extends Component {
             />
         );
     }
+
+    renderScreen() {
+        return <View style={styles.screenContainer}>
+            <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+            <TouchableOpacity
+                onPress={this.someMethod}
+                title="Spinner Test"
+                color="#00164e"
+                style={styles.button}
+            >
+                <Text style={styles.buttonText}>Spinner Test</Text>
+            </TouchableOpacity>
+        </View>
+    }
 }
 
 Clients.propTypes = {
@@ -67,9 +74,8 @@ Clients.propTypes = {
 };
 
 const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'blue',
-        flex: 1
+    screenContainer: {
+        alignItems: 'center',
     },
     button: {
         minWidth: 200,
@@ -81,7 +87,6 @@ const styles = StyleSheet.create({
         borderColor: '#d0d0d0',
         justifyContent: 'center',
         alignItems: 'center',
-        alignSelf: 'center',
         shadowRadius: 3,
         shadowOffset: { width: 5, height: 5 },
         shadowColor: '#000'
