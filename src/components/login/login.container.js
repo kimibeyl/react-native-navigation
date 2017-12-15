@@ -7,8 +7,8 @@ import LoginView from './login.view';
 
 function mapStateToProps({ loginReducer }) {
     return {
-        isLoggedIn: loginReducer.isLoggedIn,
-        showLoadingScreen: loginReducer.showLoadingScreen
+        isLoading: loginReducer.isLoading,
+        isLoggedIn: loginReducer.isLoggedIn
     };
 }
 

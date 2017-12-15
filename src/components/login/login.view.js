@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
-import LoadingScreen from '../loading-screen/loading-screen.container';
+import { renderApp } from '../../app-renderer';
+
+import LoadingScreen from '../loading-screen/loading-screen.view';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
 
         this.login = this.login.bind(this);
-        this.navigateHome = this.navigateHome.bind(this);
     }
+
+    static navigatorStyle = {
+        navBarHidden: true,
+        tabBarHidden: true,
+        statusBarColor: '#00164e'
+    };
 
     render() {
         if (this.props.isLoggedIn) {
-            this.navigateHome();
+            renderApp();
             return null;
         }
         return (
@@ -43,22 +51,21 @@ export default class Login extends Component {
                 >
                     <Text style={styles.buttonText}>SIGN IN</Text>
                 </TouchableOpacity>
-                <LoadingScreen/>
+                <LoadingScreen showLoadingScreen={this.props.isLoading} />
             </View>
         );
     }
 
     login() {
-        this.props.signIn().then(this.navigateHome);
-    }
-
-    navigateHome() {
-        this.props.navigator.push({
-            screen: 'home',
-            title: 'Home'
-        });
+        this.props.signIn().then(renderApp);
     }
 }
+
+Login.propTypes = {
+    isLoading: PropTypes.bool,
+    isLoggedIn: PropTypes.bool,
+    signIn: PropTypes.func
+};
 
 const styles = StyleSheet.create({
     container: {
