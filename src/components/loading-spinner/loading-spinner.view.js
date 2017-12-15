@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 
 export default class LoadingSpinner extends Component {
     render() {
@@ -9,6 +9,7 @@ export default class LoadingSpinner extends Component {
                 color="#00164e"
                 size="large"
                 animating={this.props.showLoadingSpinner}
+                style={styles.spinnerPadding}
             />
         );
     }
@@ -17,3 +18,9 @@ export default class LoadingSpinner extends Component {
 LoadingSpinner.propTypes = {
     showLoadingSpinner: PropTypes.bool.isRequired
 };
+
+const styles = StyleSheet.create({
+    spinnerPadding: {
+        padding: 30
+    }
+});

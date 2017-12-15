@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Header, SearchBar } from 'react-native-elements';
+import { Header } from 'react-native-elements';
 
 import LoadingSpinner from '../loading-spinner/loading-spinner.view';
 
@@ -10,6 +10,8 @@ export default class Performance extends Component {
         super(props);
 
         this.someMethod = this.someMethod.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
+        this.renderScreen = this.renderScreen.bind(this);
     }
 
     static navigatorStyle = {
@@ -19,31 +21,43 @@ export default class Performance extends Component {
     };
 
     someMethod() {
-        /*this.props.showLoadingScreenAction();
-        setTimeout(() => this.props.hideLoadingScreenAction(), 2000);*/
+        this.props.loadData();
     }
 
     render() {
-        return this.props.isLoading ? (
-            <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
-        ) : (
+        return (
             <View>
-                <Header
-                    backgroundColor="#00164e"
-                    innerContainerStyles={{ alignItems: 'center' }}
-                    centerComponent={{
-                        text: 'Performance',
-                        style: { color: '#fff', fontSize: 23 }
-                    }}
-                />
-                <TouchableOpacity
-                    onPress={this.someMethod}
-                    title="Spinner Test"
-                    color="#00164e"
-                    style={styles.button}
-                >
-                    <Text style={styles.buttonText}>Spinner Test</Text>
-                </TouchableOpacity>
+                {this.renderHeader()}
+                {this.renderScreen()}
+            </View>
+        );
+    }
+
+    renderHeader() {
+        return (
+            <Header
+                backgroundColor="#00164e"
+                innerContainerStyles={{ alignItems: 'center' }}
+                centerComponent={{ text: 'Performance', style: { color: '#fff', fontSize: 23 } }}
+            />
+        );
+    }
+
+    renderScreen() {
+        return (
+            <View style={styles.screenContainer}>
+                {this.props.isLoading ? (
+                    <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+                ) : (
+                    <TouchableOpacity
+                        onPress={this.someMethod}
+                        title="Spinner Test"
+                        color="#00164e"
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Spinner Test</Text>
+                    </TouchableOpacity>
+                )}
             </View>
         );
     }

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { Header } from 'react-native-elements';
 
-export default class Tab1 extends Component {
+export default class Tab2 extends Component {
+    static navigatorStyle = {
+        navBarHidden: true,
+        tabBarHidden: false,
+        statusBarColor: '#00164e'
+    };
     render() {
-        return <View style={styles.background} />;
+        return <Header
+            backgroundColor="#00164e"
+            innerContainerStyles={{ alignItems: 'center' }}
+            centerComponent={{ text: 'In Progress', style: { color: '#fff', fontSize: 23 } }}
+        />;
     }
 }
-
-const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'red',
-        flex: 1
-    }
-});

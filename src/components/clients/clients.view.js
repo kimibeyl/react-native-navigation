@@ -51,17 +51,22 @@ export default class Clients extends Component {
     }
 
     renderScreen() {
-        return <View style={styles.screenContainer}>
-            <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
-            <TouchableOpacity
-                onPress={this.someMethod}
-                title="Spinner Test"
-                color="#00164e"
-                style={styles.button}
-            >
-                <Text style={styles.buttonText}>Spinner Test</Text>
-            </TouchableOpacity>
-        </View>
+        return (
+            <View style={styles.screenContainer}>
+                {this.props.isLoading ? (
+                    <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+                ) : (
+                    <TouchableOpacity
+                        onPress={this.someMethod}
+                        title="Spinner Test"
+                        color="#00164e"
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Spinner Test</Text>
+                    </TouchableOpacity>
+                )}
+            </View>
+        );
     }
 }
 
@@ -75,7 +80,7 @@ Clients.propTypes = {
 
 const styles = StyleSheet.create({
     screenContainer: {
-        alignItems: 'center',
+        alignItems: 'center'
     },
     button: {
         minWidth: 200,
