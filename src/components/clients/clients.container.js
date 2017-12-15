@@ -3,22 +3,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import ClientsView from './clients.view';
-import { showSearchBarAction, hideSearchBarAction } from './clients.reducer';
-import { hideLoadingScreenAction, showLoadingScreenAction } from '../loading-screen/loading-screen.reducer';
+import { loadData, setShowSearchBarAction } from './clients.reducer';
 
 function mapStateToProps({ clientsReducer }) {
     return {
-        showSearchBar: clientsReducer.showSearchBar
+        isLoading: clientsReducer.isLoading,
+        showSearchBar: clientsReducer.showSearchBar,
+        data: clientsReducer.data
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            showSearchBarAction,
-            hideSearchBarAction,
-            hideLoadingScreenAction,
-            showLoadingScreenAction
+            loadData,
+            setShowSearchBarAction
         },
         dispatch
     );
