@@ -24,31 +24,32 @@ export default class Performance extends Component {
     }
 
     render() {
-        return;
-        <View>
-            <Header
-                backgroundColor="#00164e"
-                innerContainerStyles={{ alignItems: 'center' }}
-                centerComponent={{
-                    text: 'Performance',
-                    style: { color: '#fff', fontSize: 23 }
-                }}
-                rightComponent={{
-                    icon: 'search',
-                    color: '#fff',
-                    onPress: () => this.props.setShowSearchBarAction
-                }}
-            />
-            <TouchableOpacity
-                onPress={this.someMethod}
-                title="Loading Spinner Test"
-                color="#00164e"
-                style={styles.button}
-            >
-                <Text style={styles.buttonText}>Loading Spinner Test</Text>
-            </TouchableOpacity>
-            <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
-        </View>;
+        return (
+            <View>
+                <Header
+                    backgroundColor="#00164e"
+                    innerContainerStyles={{ alignItems: 'center' }}
+                    centerComponent={{
+                        text: 'Performance',
+                        style: { color: '#fff', fontSize: 23 }
+                    }}
+                    rightComponent={{
+                        icon: 'search',
+                        color: '#fff',
+                        onPress: () => this.props.setShowSearchBarAction
+                    }}
+                />
+                <TouchableOpacity
+                    onPress={this.someMethod}
+                    title="Loading Spinner Test"
+                    color="#00164e"
+                    style={styles.button}
+                >
+                    <Text style={styles.buttonText}>Loading Spinner Test</Text>
+                </TouchableOpacity>
+                <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
+            </View>
+        );
     }
 }
 
