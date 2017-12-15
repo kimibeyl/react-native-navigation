@@ -33,11 +33,6 @@ export default class Performance extends Component {
                         text: 'Performance',
                         style: { color: '#fff', fontSize: 23 }
                     }}
-                    rightComponent={{
-                        icon: 'search',
-                        color: '#fff',
-                        onPress: () => this.props.setShowSearchBarAction
-                    }}
                 />
                 <TouchableOpacity
                     onPress={this.someMethod}
