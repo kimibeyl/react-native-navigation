@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Header, SearchBar } from 'react-native-elements';
+import Search from '../search-header/search-header.view';
 
 import LoadingSpinner from '../loading-spinner/loading-spinner.view';
 
@@ -9,10 +10,7 @@ export default class Clients extends Component {
     constructor(props) {
         super(props);
 
-        this.someMethod = this.someMethod.bind(this);
-        this.renderHeader = this.renderHeader.bind(this);
-        this.renderScreen = this.renderScreen.bind(this);
-    }
+     }
 
     static navigatorStyle = {
         navBarHidden: true,
@@ -20,54 +18,44 @@ export default class Clients extends Component {
         statusBarColor: '#00164e'
     };
 
-    someMethod() {
-        this.props.loadData();
+       // Important: You must return a Promise
+       beforeFocus = () => {
+        return new Promise((resolve, reject) => {
+            console.log('beforeFocus');
+            resolve();
+        });
     }
 
-    render() {
-        return (
-            <View>
-                {this.renderHeader()}
-                {this.renderScreen()}
-            </View>
-        );
+    // Important: You must return a Promise
+    onFocus = (text) => {
+        return new Promise((resolve, reject) => {
+            console.log('onFocus', text);
+            resolve();
+        });
     }
 
-    renderHeader() {
-        return this.props.showSearchBar ? (
-            <SearchBar />
-        ) : (
-            <Header
-                backgroundColor="#00164e"
-                innerContainerStyles={{ alignItems: 'center' }}
-                centerComponent={{ text: 'Clients', style: { color: '#fff', fontSize: 23 } }}
-                rightComponent={{
-                    icon: 'search',
-                    color: '#fff',
-                    onPress: () => this.props.setShowSearchBarAction(true)
-                }}
-            />
-        );
+    // Important: You must return a Promise
+    afterFocus = () => {
+        return new Promise((resolve, reject) => {
+            console.log('afterFocus');
+            resolve();
+        });
     }
 
-    renderScreen() {
-        return (
-            <View style={styles.screenContainer}>
-                {this.props.isLoading ? (
-                    <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
-                ) : (
-                    <TouchableOpacity
-                        onPress={this.someMethod}
-                        title="Spinner Test"
-                        color="#00164e"
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Spinner Test</Text>
-                    </TouchableOpacity>
-                )}
-            </View>
-        );
-    }
+  render() {
+    // inside your render function
+    return (
+      <View style={{ flex: 1}}>
+        <Search
+          ref="search_box"
+          /**
+          * There many props that can customizable
+          * Please scroll down to Props section
+          */
+        />
+        </View>
+    );
+  }
 }
 
 Clients.propTypes = {
