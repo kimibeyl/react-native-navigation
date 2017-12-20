@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Header } from 'react-native-elements';
+
+import LoadingSpinner from '../loading-spinner/loading-spinner.view';
 
 export default class Tab2 extends Component {
     static navigatorStyle = {
@@ -8,6 +9,6 @@ export default class Tab2 extends Component {
         statusBarColor: '#00164e'
     };
     render() {
-        return null;
+        return <LoadingSpinner showLoadingSpinner={true} />;
     }
 }
