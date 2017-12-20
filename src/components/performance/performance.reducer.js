@@ -20,7 +20,7 @@ export function loadData() {
                 dispatch(loadDataAction({ conversionRate: 54 }));
                 dispatch(setIsLoadingAction(false));
                 resolve();
-            }, 2000);
+            }, 4000);
         });
     };
 }

@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Header, SearchBar } from 'react-native-elements';
-import Search from '../search-header/search-header.view';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {Header, SearchBar} from 'react-native-elements';
 
 import LoadingSpinner from '../loading-spinner/loading-spinner.view';
+import Search from '../search-header/search-header.view';
 
 export default class Clients extends Component {
     constructor(props) {
         super(props);
 
-     }
+        this.renderHeader = this.renderHeader.bind(this);
+        this.renderScreen = this.renderScreen.bind(this);
+    }
 
     static navigatorStyle = {
         navBarHidden: true,
@@ -18,8 +20,8 @@ export default class Clients extends Component {
         statusBarColor: '#00164e'
     };
 
-       // Important: You must return a Promise
-       beforeFocus = () => {
+    // Important: You must return a Promise
+    beforeFocus = () => {
         return new Promise((resolve, reject) => {
             console.log('beforeFocus');
             resolve();
@@ -42,20 +44,47 @@ export default class Clients extends Component {
         });
     }
 
-  render() {
-    // inside your render function
-    return (
-      <View style={{ flex: 1}}>
-        <Search
-          ref="search_box"
-          /**
-          * There many props that can customizable
-          * Please scroll down to Props section
-          */
-        />
-        </View>
-    );
-  }
+
+    render() {
+        return (
+            <View>
+                {this.renderHeader()}
+                {this.renderScreen()}
+            </View>
+        );
+    }
+
+    renderHeader() {
+        // inside your render function
+        return (
+                <Search
+                    ref="search_box"
+                    /**
+                    * There many props that can customizable
+                    * Please scroll down to Props section
+                    */
+                />
+        );
+    }
+
+    renderScreen() {
+        return (
+            <View>
+                {this.props.isLoading ? (
+                    <LoadingSpinner showLoadingSpinner={this.props.isLoading}/>
+                ) : (
+                    <TouchableOpacity
+                        onPress={this.props.loadData}
+                        title="Spinner Test"
+                        color="#00164e"
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Spinner Test</Text>
+                    </TouchableOpacity>
+                )}
+            </View>
+        );
+    }
 }
 
 Clients.propTypes = {
@@ -67,9 +96,6 @@ Clients.propTypes = {
 };
 
 const styles = StyleSheet.create({
-    screenContainer: {
-        alignItems: 'center'
-    },
     button: {
         minWidth: 200,
         maxWidth: 250,
@@ -80,6 +106,7 @@ const styles = StyleSheet.create({
         borderColor: '#d0d0d0',
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
         shadowRadius: 3,
         shadowOffset: { width: 5, height: 5 },
         shadowColor: '#000'

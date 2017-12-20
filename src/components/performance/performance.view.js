@@ -9,25 +9,19 @@ export default class Performance extends Component {
     constructor(props) {
         super(props);
 
-        this.someMethod = this.someMethod.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
         this.renderScreen = this.renderScreen.bind(this);
     }
 
     static navigatorStyle = {
-        navBarHidden: true,
+        navBarTitleTextCentered: true,
         tabBarHidden: false,
         statusBarColor: '#00164e'
     };
 
-    someMethod() {
-        this.props.loadData();
-    }
-
     render() {
         return (
             <View>
-                {this.renderHeader()}
                 {this.renderScreen()}
             </View>
         );
@@ -45,12 +39,12 @@ export default class Performance extends Component {
 
     renderScreen() {
         return (
-            <View style={styles.screenContainer}>
+            <View>
                 {this.props.isLoading ? (
                     <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
                 ) : (
                     <TouchableOpacity
-                        onPress={this.someMethod}
+                        onPress={this.props.loadData}
                         title="Spinner Test"
                         color="#00164e"
                         style={styles.button}
@@ -65,16 +59,12 @@ export default class Performance extends Component {
 
 Performance.propTypes = {
     isLoading: PropTypes.bool,
-    loadData: PropTypes.func,
     data: PropTypes.object,
+    loadData: PropTypes.func,
     setShowSearchBarAction: PropTypes.func
 };
 
 const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'blue',
-        flex: 1
-    },
     button: {
         minWidth: 200,
         maxWidth: 250,
