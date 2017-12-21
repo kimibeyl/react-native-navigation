@@ -89,10 +89,10 @@ export default class Clients extends Component {
 
 Clients.propTypes = {
     isLoading: PropTypes.bool,
-    showSearchBar: PropTypes.bool,
+    searchTerm: PropTypes.string,
     data: PropTypes.object,
     loadData: PropTypes.func,
-    setShowSearchBarAction: PropTypes.func
+    setSearchTermAction: PropTypes.func
 };
 
 const styles = StyleSheet.create({

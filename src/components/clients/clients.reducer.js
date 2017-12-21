@@ -4,12 +4,12 @@ import buildActionName from '../../redux/build-action-name';
 const reducerName = 'clients';
 
 const SET_IS_LOADING = buildActionName(reducerName, 'SET_IS_LOADING');
-const SET_SHOW_SEARCHBAR = buildActionName(reducerName, 'SET_SHOW_SEARCHBAR');
+const SET_SEARCH_TERM = buildActionName(reducerName, 'SET_SEARCH_TERM');
 const LOAD_DATA = buildActionName(reducerName, 'LOAD_DATA');
 
 const initialSate = {
     isLoading: false,
-    showSearchBar: false,
+    searchTerm: '',
     data: {}
 };
 
@@ -27,9 +27,9 @@ export function loadData() {
     };
 }
 
-export function setShowSearchBarAction(payload) {
+export function setSearchTermAction(payload) {
     return {
-        type: SET_SHOW_SEARCHBAR,
+        type: SET_SEARCH_TERM,
         payload
     };
 }
@@ -50,10 +50,10 @@ export function loadDataAction(payload) {
 
 export default (state = initialSate, action) => {
     switch (action.type) {
-        case SET_SHOW_SEARCHBAR:
-            return { ...state, showSearchBar: action.payload };
         case SET_IS_LOADING:
             return { ...state, isLoading: action.payload };
+        case SET_SEARCH_TERM:
+            return { ...state, searchTerm: action.payload };
         case LOAD_DATA:
             return { ...state, data: action.payload };
         default:
