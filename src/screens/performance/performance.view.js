@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Header } from 'react-native-elements';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
 
 export default class Performance extends Component {
-    constructor(props) {
-        super(props);
-
-        this.renderHeader = this.renderHeader.bind(this);
-        this.renderScreen = this.renderScreen.bind(this);
-    }
-
     static navigatorStyle = {
         navBarTitleTextCentered: true,
         tabBarHidden: false,

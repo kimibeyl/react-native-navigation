@@ -1,10 +1,9 @@
-'use strict';
 import buildActionName from '../build-action-name';
 
 describe('Build Action Name - Unit Test', () => {
     it('should return an action name', () => {
         const actual = buildActionName('someReducer', 'SOME_ACTION');
-        const expected = 'leads/someReducer/SOME_ACTION';
+        const expected = 'InTouch/someReducer/SOME_ACTION';
         expect(actual).toEqual(expected);
     });
 

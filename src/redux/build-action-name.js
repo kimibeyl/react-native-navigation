@@ -1,5 +1,4 @@
-'use strict';
-const appName = 'leads';
+const appName = 'InTouch';
 
 export default function buildActionName(reducerName = '', actionName = '') {
     reducerName = reducerName.toString().trim();

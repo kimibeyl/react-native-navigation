@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import LoadingSpinner from '../../components/loading-spinner/loading-spinner.view';
+import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view.js';
 
 export default class Tab2 extends Component {
     static navigatorStyle = {
@@ -9,6 +9,8 @@ export default class Tab2 extends Component {
         statusBarColor: '#00164e'
     };
     render() {
-        return <LoadingSpinner showLoadingSpinner={true} />;
+        return <RefreshScrollContainer isRefreshing={true} onRefresh={() => {}}>
+
+        </RefreshScrollContainer>;
     }
 }

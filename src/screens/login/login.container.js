@@ -1,9 +1,8 @@
-'use strict';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { signIn } from './login.reducer';
 import LoginView from './login.view';
+import { signIn } from './login.reducer';
 
 function mapStateToProps({ loginReducer }) {
     return {

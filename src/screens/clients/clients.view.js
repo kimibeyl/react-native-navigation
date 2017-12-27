@@ -4,46 +4,15 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Header, SearchBar } from 'react-native-elements';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
-import Search from '../../components/search-header/search-header.view';
 
 export default class Clients extends Component {
-    constructor(props) {
-        super(props);
-
-        this.renderHeader = this.renderHeader.bind(this);
-        this.renderScreen = this.renderScreen.bind(this);
-    }
-
     static navigatorStyle = {
-        navBarHidden: true,
+        navBarTitleTextCentered: true,
         tabBarHidden: false,
         statusBarColor: '#00164e'
     };
 
-
     render() {
-        return (
-            <View>
-                {this.renderHeader()}
-                {this.renderScreen()}
-            </View>
-        );
-    }
-
-    renderHeader() {
-        // inside your render function
-        return (
-            <Search
-                ref="search_box"
-                /**
-                * There many props that can customizable
-                * Please scroll down to Props section
-                */
-            />
-        );
-    }
-
-    renderScreen() {
         return (
             <RefreshScrollContainer isRefreshing={this.props.isLoading}
                                     onRefresh={this.props.loadData}

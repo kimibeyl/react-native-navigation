@@ -6,7 +6,6 @@ import Tab1 from '../screens/tabs/tab1';
 import Tab2 from '../screens/tabs/tab2';
 import Performance from '../screens/performance/performance.container';
 
-// register all screens of the app (including internal ones)
 export function registerScreens(store, Provider) {
     Navigation.registerComponent('login', () => Login, store, Provider);
     Navigation.registerComponent('clients', () => Clients, store, Provider);

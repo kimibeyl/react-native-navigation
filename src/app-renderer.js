@@ -12,7 +12,7 @@ export function renderApp() {
         {
             label: 'Clients',
             screen: 'clients',
-            icon: require('./assets/icons/list.png'),
+            icon: require('./assets/icons/clients.png'),
             title: 'Clients'
         },
         {
@@ -24,13 +24,13 @@ export function renderApp() {
         {
             label: 'Deferred',
             screen: 'tab2',
-            icon: require('./assets/icons/list.png'),
+            icon: require('./assets/icons/time.png'),
             title: 'Deferred'
         },
         {
             label: 'Performance',
             screen: 'performance',
-            icon: require('./assets/icons/list.png'),
+            icon: require('./assets/icons/performance.png'),
             title: 'Performance'
         }
     ];
