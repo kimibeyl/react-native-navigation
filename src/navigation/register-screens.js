@@ -1,10 +1,10 @@
 import { Navigation } from 'react-native-navigation';
 
-import Login from '../components/login/login.container';
-import Clients from '../components/clients/clients.container';
-import Tab1 from '../components/tabs/tab1';
-import Tab2 from '../components/tabs/tab2';
-import Performance from '../components/performance/performance.container';
+import Login from '../screens/login/login.container';
+import Clients from '../screens/clients/clients.container';
+import Tab1 from '../screens/tabs/tab1';
+import Tab2 from '../screens/tabs/tab2';
+import Performance from '../screens/performance/performance.container';
 
 // register all screens of the app (including internal ones)
 export function registerScreens(store, Provider) {

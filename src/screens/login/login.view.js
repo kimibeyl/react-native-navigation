@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 
 import { renderApp } from '../../app-renderer';
 
-import LoadingScreen from '../loading-screen/loading-screen.view';
+import LoadingScreen from '../../components/loading-screen/loading-screen.view';
 
 export default class Login extends Component {
     constructor(props) {

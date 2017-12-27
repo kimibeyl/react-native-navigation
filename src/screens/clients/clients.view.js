@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import {Header, SearchBar} from 'react-native-elements';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { Header, SearchBar } from 'react-native-elements';
 
-import LoadingSpinner from '../loading-spinner/loading-spinner.view';
-import Search from '../search-header/search-header.view';
+import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
+import Search from '../../components/search-header/search-header.view';
 
 export default class Clients extends Component {
     constructor(props) {
@@ -20,30 +20,6 @@ export default class Clients extends Component {
         statusBarColor: '#00164e'
     };
 
-    // Important: You must return a Promise
-    beforeFocus = () => {
-        return new Promise((resolve, reject) => {
-            console.log('beforeFocus');
-            resolve();
-        });
-    }
-
-    // Important: You must return a Promise
-    onFocus = (text) => {
-        return new Promise((resolve, reject) => {
-            console.log('onFocus', text);
-            resolve();
-        });
-    }
-
-    // Important: You must return a Promise
-    afterFocus = () => {
-        return new Promise((resolve, reject) => {
-            console.log('afterFocus');
-            resolve();
-        });
-    }
-
 
     render() {
         return (
@@ -57,22 +33,22 @@ export default class Clients extends Component {
     renderHeader() {
         // inside your render function
         return (
-                <Search
-                    ref="search_box"
-                    /**
-                    * There many props that can customizable
-                    * Please scroll down to Props section
-                    */
-                />
+            <Search
+                ref="search_box"
+                /**
+                * There many props that can customizable
+                * Please scroll down to Props section
+                */
+            />
         );
     }
 
     renderScreen() {
         return (
-            <View>
-                {this.props.isLoading ? (
-                    <LoadingSpinner showLoadingSpinner={this.props.isLoading}/>
-                ) : (
+            <RefreshScrollContainer isRefreshing={this.props.isLoading}
+                                    onRefresh={this.props.loadData}
+            >
+                <View>
                     <TouchableOpacity
                         onPress={this.props.loadData}
                         title="Spinner Test"
@@ -81,8 +57,8 @@ export default class Clients extends Component {
                     >
                         <Text style={styles.buttonText}>Spinner Test</Text>
                     </TouchableOpacity>
-                )}
-            </View>
+                </View>
+            </RefreshScrollContainer>
         );
     }
 }

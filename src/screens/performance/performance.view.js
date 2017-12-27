@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Header } from 'react-native-elements';
 
-import LoadingSpinner from '../loading-spinner/loading-spinner.view';
+import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
 
 export default class Performance extends Component {
     constructor(props) {
@@ -21,28 +21,10 @@ export default class Performance extends Component {
 
     render() {
         return (
-            <View>
-                {this.renderScreen()}
-            </View>
-        );
-    }
-
-    renderHeader() {
-        return (
-            <Header
-                backgroundColor="#00164e"
-                innerContainerStyles={{ alignItems: 'center' }}
-                centerComponent={{ text: 'Performance', style: { color: '#fff', fontSize: 23 } }}
-            />
-        );
-    }
-
-    renderScreen() {
-        return (
-            <View>
-                {this.props.isLoading ? (
-                    <LoadingSpinner showLoadingSpinner={this.props.isLoading} />
-                ) : (
+            <RefreshScrollContainer isRefreshing={this.props.isLoading}
+                                    onRefresh={this.props.loadData}
+            >
+                <View>
                     <TouchableOpacity
                         onPress={this.props.loadData}
                         title="Spinner Test"
@@ -51,8 +33,8 @@ export default class Performance extends Component {
                     >
                         <Text style={styles.buttonText}>Spinner Test</Text>
                     </TouchableOpacity>
-                )}
-            </View>
+                </View>
+            </RefreshScrollContainer>
         );
     }
 }
