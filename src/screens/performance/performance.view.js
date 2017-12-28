@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
@@ -15,6 +16,7 @@ export default class Performance extends Component {
         return (
             <RefreshScrollContainer isRefreshing={this.props.isLoading}
                                     onRefresh={this.props.loadData}
+                                    showContent={!_.isEmpty(this.props.data)}
             >
                 <View>
                     <TouchableOpacity

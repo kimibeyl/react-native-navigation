@@ -12,7 +12,7 @@ export default class RefreshScrollContainer extends Component {
                     colors={["#00164e"]}
                 />}
             >
-                {this.props.children}
+                {this.props.showContent ? this.props.children : null}
             </ScrollView>
         );
     }
@@ -20,5 +20,6 @@ export default class RefreshScrollContainer extends Component {
 
 RefreshScrollContainer.propTypes = {
     isRefreshing: PropTypes.bool,
+    showContent: PropTypes.bool,
     onRefresh: PropTypes.func
 };

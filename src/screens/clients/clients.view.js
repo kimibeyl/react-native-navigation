@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Header, SearchBar } from 'react-native-elements';
 
@@ -23,6 +24,7 @@ export default class Clients extends Component {
         return (
             <RefreshScrollContainer isRefreshing={this.props.isLoading}
                                     onRefresh={this.props.loadData}
+                                    showContent={!_.isEmpty(this.props.data)}
             >
                 <View>
                     <TouchableOpacity
