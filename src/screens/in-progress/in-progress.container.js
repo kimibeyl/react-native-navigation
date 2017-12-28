@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import InProgressView from './in-progress.view';
 import { loadData } from './in-progress.reducer';
-import { setSearchTermAction } from "../clients/clients.reducer";
+import { setSearchTermAction } from "../in-progress/in-progress.reducer";
 
 function mapStateToProps({ inProgressReducer }) {
     return {

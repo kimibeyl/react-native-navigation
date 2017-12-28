@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import DeferredView from './deferred.view';
 import { loadData } from './deferred.reducer';
-import { setSearchTermAction } from "../clients/clients.reducer";
+import { setSearchTermAction } from "../deferred/deferred.reducer";
 
 function mapStateToProps({ deferredReducer }) {
     return {

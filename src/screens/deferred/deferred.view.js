@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
+import { setSearchTermAction } from "../clients/clients.reducer";
 
 export default class Deferred extends Component {
     static navigatorStyle = {
@@ -37,11 +39,25 @@ export default class Deferred extends Component {
 
     render() {
         return (
-            <RefreshScrollContainer isRefreshing={this.props.isLoading}
-                                    onRefresh={this.props.loadData}
-                                    showContent={!_.isEmpty(this.props.data)}
-            >
-                <View>
+            <View>
+                <SearchBar
+                    onChangeText={this.props.setSearchTermAction}
+                    placeholder='Type Here...'
+                    lightTheme
+                    clearIcon
+                />
+                <RefreshScrollContainer isRefreshing={this.props.isLoading}
+                                        onRefresh={this.props.loadData}
+                                        showContent={!_.isEmpty(this.props.data)}
+                >
+                    <TouchableOpacity
+                        onPress={this.props.loadData}
+                        title="Spinner Test"
+                        color="#00164e"
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>{this.props.searchTerm}</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={this.props.loadData}
                         title="Spinner Test"
@@ -50,14 +66,15 @@ export default class Deferred extends Component {
                     >
                         <Text style={styles.buttonText}>Spinner Test</Text>
                     </TouchableOpacity>
-                </View>
-            </RefreshScrollContainer>
+                </RefreshScrollContainer>
+            </View>
         );
     }
 }
 
 Deferred.propTypes = {
     isLoading: PropTypes.bool,
+    searchTerm: PropTypes.string,
     data: PropTypes.object,
     loadData: PropTypes.func,
     setShowSearchBarAction: PropTypes.func
