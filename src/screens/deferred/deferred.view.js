@@ -42,7 +42,7 @@ export default class Deferred extends Component {
             <View>
                 <SearchBar
                     onChangeText={this.props.setSearchTermAction}
-                    placeholder='Type Here...'
+                    placeholder='Search Here...'
                     lightTheme
                     clearIcon
                 />
@@ -52,19 +52,11 @@ export default class Deferred extends Component {
                 >
                     <TouchableOpacity
                         onPress={this.props.loadData}
-                        title="Spinner Test"
+                        title="Search Test"
                         color="#00164e"
                         style={styles.button}
                     >
-                        <Text style={styles.buttonText}>{this.props.searchTerm}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={this.props.loadData}
-                        title="Spinner Test"
-                        color="#00164e"
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Spinner Test</Text>
+                        <Text style={styles.buttonText}>Search Term: {this.props.searchTerm}</Text>
                     </TouchableOpacity>
                 </RefreshScrollContainer>
             </View>
@@ -83,7 +75,7 @@ Deferred.propTypes = {
 const styles = StyleSheet.create({
     button: {
         minWidth: 200,
-        maxWidth: 250,
+        maxWidth: 650,
         marginVertical: 200,
         height: 50,
         backgroundColor: '#00164e',
