@@ -10,42 +10,42 @@ export function renderLoginApp() {
 export function renderApp() {
     const tabs = [
         {
+            title: 'Clients',
             label: 'Clients',
             screen: 'clients',
-            icon: require('./assets/icons/clients.png'),
-            title: 'Clients'
+            icon: require('./assets/icons/clients.png')
         },
         {
+            title: 'In Progress',
             label: 'In Progress',
             screen: 'tab1',
-            icon: require('./assets/icons/list.png'),
-            title: 'In Progress'
+            icon: require('./assets/icons/in-progress.png')
         },
         {
+            title: 'Deferred',
             label: 'Deferred',
             screen: 'tab2',
-            icon: require('./assets/icons/time.png'),
-            title: 'Deferred'
+            icon: require('./assets/icons/deferred.png')
         },
         {
+            title: 'Performance',
             label: 'Performance',
             screen: 'performance',
-            icon: require('./assets/icons/performance.png'),
-            title: 'Performance'
+            icon: require('./assets/icons/performance.png')
         }
     ];
 
     Navigation.startTabBasedApp({
         tabs,
         animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
-        // iOS
+        // iOS Only
         tabStyle: {
             tabBarButtonColor: '#fff',
             tabBarSelectedButtonColor: '#fff',
             tabBarBackgroundColor: '#00164e',
             tabFontFamily: 'BioRhyme-Bold'
         },
-        // Android
+        // Android Only
         appStyle: {
             tabBarButtonColor: '#fff',
             tabBarSelectedButtonColor: '#fff',

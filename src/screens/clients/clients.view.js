@@ -12,6 +12,13 @@ export default class Clients extends Component {
         statusBarColor: '#00164e'
     };
 
+    static navigatorButtons = {
+        rightButtons: [{
+            icon: require('../../assets/icons/search.png'),
+            id: 'search'
+        }]
+    };
+
     render() {
         return (
             <RefreshScrollContainer isRefreshing={this.props.isLoading}
