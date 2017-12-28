@@ -18,13 +18,13 @@ export function renderApp() {
         {
             title: 'In Progress',
             label: 'In Progress',
-            screen: 'tab1',
+            screen: 'inProgress',
             icon: require('./assets/icons/in-progress.png')
         },
         {
             title: 'Deferred',
             label: 'Deferred',
-            screen: 'tab2',
+            screen: 'deferred',
             icon: require('./assets/icons/deferred.png')
         },
         {

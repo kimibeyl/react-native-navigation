@@ -1,6 +1,6 @@
 import buildActionName from '../../redux/build-action-name';
 
-const reducerName = 'clients';
+const reducerName = 'in-progress';
 
 const SET_IS_LOADING = buildActionName(reducerName, 'SET_IS_LOADING');
 const SET_SEARCH_TERM = buildActionName(reducerName, 'SET_SEARCH_TERM');
@@ -18,10 +18,10 @@ export function loadData() {
         return new Promise((resolve, reject) => {
             // Mock API call
             setTimeout(function() {
-                dispatch(loadDataAction({ client: { firstName: 'Casper', lastName: 'Ghost' } }));
+                dispatch(loadDataAction({ client: { firstName: 'Peter', lastName: 'Piper' } }));
                 dispatch(setIsLoadingAction(false));
                 resolve();
-            }, 2000);
+            }, 4000);
         });
     };
 }

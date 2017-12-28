@@ -5,7 +5,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
 
-export default class Clients extends Component {
+export default class InProgress extends Component {
     static navigatorStyle = {
         navBarTitleTextCentered: true,
         tabBarHidden: false,
@@ -46,12 +46,11 @@ export default class Clients extends Component {
     }
 }
 
-Clients.propTypes = {
+InProgress.propTypes = {
     isLoading: PropTypes.bool,
-    searchTerm: PropTypes.string,
     data: PropTypes.object,
     loadData: PropTypes.func,
-    setSearchTermAction: PropTypes.func
+    setShowSearchBarAction: PropTypes.func
 };
 
 const styles = StyleSheet.create({

@@ -12,6 +12,12 @@ export default class Performance extends Component {
         statusBarColor: '#00164e'
     };
 
+    constructor(props) {
+        super(props);
+
+        this.props.loadData();
+    }
+
     render() {
         return (
             <RefreshScrollContainer isRefreshing={this.props.isLoading}
