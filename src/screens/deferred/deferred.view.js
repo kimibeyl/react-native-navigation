@@ -5,7 +5,6 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
-import { setSearchTermAction } from "../clients/clients.reducer";
 
 export default class Deferred extends Component {
     static navigatorStyle = {
@@ -33,6 +32,7 @@ export default class Deferred extends Component {
         if (event.type === 'NavBarButtonPress') {
             if (event.id === 'search') {
                 console.log('Search Button Pressed');
+                this.props.toggleShowSearch();
             }
         }
     }
@@ -40,12 +40,12 @@ export default class Deferred extends Component {
     render() {
         return (
             <View>
-                <SearchBar
+                {this.props.showSearch ? <SearchBar
                     onChangeText={this.props.setSearchTermAction}
                     placeholder='Search Here...'
                     lightTheme
                     clearIcon
-                />
+                /> : null}
                 <RefreshScrollContainer isRefreshing={this.props.isLoading}
                                         onRefresh={this.props.loadData}
                                         showContent={!_.isEmpty(this.props.data)}
@@ -66,8 +66,10 @@ export default class Deferred extends Component {
 
 Deferred.propTypes = {
     isLoading: PropTypes.bool,
+    showSearch: PropTypes.bool,
     searchTerm: PropTypes.string,
     data: PropTypes.object,
+    toggleShowSearch: PropTypes.func,
     loadData: PropTypes.func,
     setShowSearchBarAction: PropTypes.func
 };

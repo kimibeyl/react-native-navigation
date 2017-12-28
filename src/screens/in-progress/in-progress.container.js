@@ -2,8 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import InProgressView from './in-progress.view';
-import { loadData } from './in-progress.reducer';
-import { setSearchTermAction } from "../in-progress/in-progress.reducer";
+import { loadData, setSearchTermAction } from './in-progress.reducer';
 
 function mapStateToProps({ inProgressReducer }) {
     return {
