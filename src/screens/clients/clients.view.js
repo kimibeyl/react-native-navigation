@@ -22,7 +22,17 @@ export default class Clients extends Component {
     constructor(props) {
         super(props);
 
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+
         this.props.loadData();
+    }
+
+    onNavigatorEvent(event) {
+        if (event.type === 'NavBarButtonPress') {
+            if (event.id === 'search') {
+                console.log('Search Button Pressed');
+            }
+        }
     }
 
     render() {
