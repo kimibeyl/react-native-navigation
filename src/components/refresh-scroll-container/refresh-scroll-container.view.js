@@ -14,6 +14,7 @@ export default class RefreshScrollContainer extends Component {
                     />
                 }
             >
+                /* TODO: Rendering null hides the spinner as well which should be fixed. */
                 {this.props.showContent ? this.props.children : null}
             </ScrollView>
         );
