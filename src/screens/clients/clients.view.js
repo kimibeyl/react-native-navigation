@@ -57,7 +57,7 @@ export default class Clients extends Component {
                         color="#00164e"
                         style={styles.button}
                     >
-                        <Text style={styles.buttonText}>Spinner Test</Text>
+                        <Text style={styles.buttonText}>Search Term: {this.props.searchTerm}</Text>
                     </TouchableOpacity>
                 </RefreshScrollContainer>
             </View>

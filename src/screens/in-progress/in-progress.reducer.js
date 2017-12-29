@@ -16,7 +16,7 @@ const initialSate = {
 
 export function toggleShowSearch() {
     return (dispatch, getState) => {
-        const showSearch = getState().deferredReducer.showSearch;
+        const showSearch = getState().inProgressReducer.showSearch;
         dispatch(setSearchTermAction(''));
         dispatch(setShowSearchAction(!showSearch));
     };
