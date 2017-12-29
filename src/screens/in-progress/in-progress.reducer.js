@@ -3,14 +3,24 @@ import buildActionName from '../../redux/build-action-name';
 const reducerName = 'in-progress';
 
 const SET_IS_LOADING = buildActionName(reducerName, 'SET_IS_LOADING');
+const SET_SHOW_SEARCH = buildActionName(reducerName, 'SET_SHOW_SEARCH');
 const SET_SEARCH_TERM = buildActionName(reducerName, 'SET_SEARCH_TERM');
 const LOAD_DATA = buildActionName(reducerName, 'LOAD_DATA');
 
 const initialSate = {
     isLoading: false,
+    showSearch: false,
     searchTerm: '',
     data: {}
 };
+
+export function toggleShowSearch() {
+    return (dispatch, getState) => {
+        const showSearch = getState().deferredReducer.showSearch;
+        dispatch(setSearchTermAction(''));
+        dispatch(setShowSearchAction(!showSearch));
+    };
+}
 
 export function loadData() {
     return dispatch => {
@@ -33,6 +43,13 @@ export function setIsLoadingAction(payload) {
     };
 }
 
+export function setShowSearchAction(payload) {
+    return {
+        type: SET_SHOW_SEARCH,
+        payload
+    };
+}
+
 export function setSearchTermAction(payload) {
     return {
         type: SET_SEARCH_TERM,
@@ -51,6 +68,8 @@ export default (state = initialSate, action) => {
     switch (action.type) {
         case SET_IS_LOADING:
             return { ...state, isLoading: action.payload };
+        case SET_SHOW_SEARCH:
+            return { ...state, showSearch: action.payload };
         case SET_SEARCH_TERM:
             return { ...state, searchTerm: action.payload };
         case LOAD_DATA:

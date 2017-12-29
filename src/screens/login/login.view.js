@@ -64,6 +64,7 @@ export default class Login extends Component {
 Login.propTypes = {
     isLoading: PropTypes.bool,
     isLoggedIn: PropTypes.bool,
+
     signIn: PropTypes.func
 };
 

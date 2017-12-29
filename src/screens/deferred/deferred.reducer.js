@@ -19,7 +19,7 @@ export function toggleShowSearch() {
         const showSearch = getState().deferredReducer.showSearch;
         dispatch(setSearchTermAction(''));
         dispatch(setShowSearchAction(!showSearch));
-    }
+    };
 }
 
 export function loadData() {
@@ -27,7 +27,7 @@ export function loadData() {
         dispatch(setIsLoadingAction(true));
         return new Promise((resolve, reject) => {
             // Mock API call
-            setTimeout(function () {
+            setTimeout(function() {
                 dispatch(loadDataAction({ client: { firstName: 'Peter', lastName: 'Piper' } }));
                 dispatch(setIsLoadingAction(false));
                 resolve();

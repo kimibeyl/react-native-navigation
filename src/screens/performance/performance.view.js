@@ -20,9 +20,10 @@ export default class Performance extends Component {
 
     render() {
         return (
-            <RefreshScrollContainer isRefreshing={this.props.isLoading}
-                                    onRefresh={this.props.loadData}
-                                    showContent={!_.isEmpty(this.props.data)}
+            <RefreshScrollContainer
+                isRefreshing={this.props.isLoading}
+                onRefresh={this.props.loadData}
+                showContent={!_.isEmpty(this.props.data)}
             >
                 <View>
                     <TouchableOpacity
@@ -42,8 +43,8 @@ export default class Performance extends Component {
 Performance.propTypes = {
     isLoading: PropTypes.bool,
     data: PropTypes.object,
-    loadData: PropTypes.func,
-    setShowSearchBarAction: PropTypes.func
+
+    loadData: PropTypes.func
 };
 
 const styles = StyleSheet.create({

@@ -2,11 +2,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import ClientsView from './clients.view';
-import { loadData, setSearchTermAction } from './clients.reducer';
+import { toggleShowSearch, loadData, setSearchTermAction } from './clients.reducer';
 
 function mapStateToProps({ clientsReducer }) {
     return {
         isLoading: clientsReducer.isLoading,
+        showSearch: clientsReducer.showSearch,
         searchTerm: clientsReducer.searchTerm,
         data: clientsReducer.data
     };
@@ -15,6 +16,7 @@ function mapStateToProps({ clientsReducer }) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
+            toggleShowSearch,
             loadData,
             setSearchTermAction
         },

@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
+import SearchBox from '../../components/search-bar/search-box.view';
 
 export default class Clients extends Component {
     static navigatorStyle = {
@@ -13,10 +14,12 @@ export default class Clients extends Component {
     };
 
     static navigatorButtons = {
-        rightButtons: [{
-            icon: require('../../assets/icons/search.png'),
-            id: 'search'
-        }]
+        rightButtons: [
+            {
+                icon: require('../../assets/icons/search.png'),
+                id: 'search'
+            }
+        ]
     };
 
     constructor(props) {
@@ -30,18 +33,24 @@ export default class Clients extends Component {
     onNavigatorEvent(event) {
         if (event.type === 'NavBarButtonPress') {
             if (event.id === 'search') {
-                console.log('Search Button Pressed');
+                this.props.toggleShowSearch();
             }
         }
     }
 
     render() {
         return (
-            <RefreshScrollContainer isRefreshing={this.props.isLoading}
-                                    onRefresh={this.props.loadData}
-                                    showContent={!_.isEmpty(this.props.data)}
-            >
-                <View>
+            <View>
+                <SearchBox
+                    showSearchBox={this.props.showSearch}
+                    placeholderText={'Search Clients'}
+                    onTextChange={this.props.setSearchTermAction}
+                />
+                <RefreshScrollContainer
+                    isRefreshing={this.props.isLoading}
+                    onRefresh={this.props.loadData}
+                    showContent={!_.isEmpty(this.props.data)}
+                >
                     <TouchableOpacity
                         onPress={this.props.loadData}
                         title="Spinner Test"
@@ -50,16 +59,19 @@ export default class Clients extends Component {
                     >
                         <Text style={styles.buttonText}>Spinner Test</Text>
                     </TouchableOpacity>
-                </View>
-            </RefreshScrollContainer>
+                </RefreshScrollContainer>
+            </View>
         );
     }
 }
 
 Clients.propTypes = {
     isLoading: PropTypes.bool,
+    showSearch: PropTypes.bool,
     searchTerm: PropTypes.string,
     data: PropTypes.object,
+
+    toggleShowSearch: PropTypes.func,
     loadData: PropTypes.func,
     setSearchTermAction: PropTypes.func
 };

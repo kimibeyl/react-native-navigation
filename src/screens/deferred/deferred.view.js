@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { SearchBar } from 'react-native-elements';
 
 import RefreshScrollContainer from '../../components/refresh-scroll-container/refresh-scroll-container.view';
+import SearchBox from '../../components/search-bar/search-box.view';
 
 export default class Deferred extends Component {
     static navigatorStyle = {
@@ -14,10 +14,12 @@ export default class Deferred extends Component {
     };
 
     static navigatorButtons = {
-        rightButtons: [{
-            icon: require('../../assets/icons/search.png'),
-            id: 'search'
-        }]
+        rightButtons: [
+            {
+                icon: require('../../assets/icons/search.png'),
+                id: 'search'
+            }
+        ]
     };
 
     constructor(props) {
@@ -31,7 +33,6 @@ export default class Deferred extends Component {
     onNavigatorEvent(event) {
         if (event.type === 'NavBarButtonPress') {
             if (event.id === 'search') {
-                console.log('Search Button Pressed');
                 this.props.toggleShowSearch();
             }
         }
@@ -40,15 +41,15 @@ export default class Deferred extends Component {
     render() {
         return (
             <View>
-                {this.props.showSearch ? <SearchBar
-                    onChangeText={this.props.setSearchTermAction}
-                    placeholder='Search Here...'
-                    lightTheme
-                    clearIcon
-                /> : null}
-                <RefreshScrollContainer isRefreshing={this.props.isLoading}
-                                        onRefresh={this.props.loadData}
-                                        showContent={!_.isEmpty(this.props.data)}
+                <SearchBox
+                    showSearchBox={this.props.showSearch}
+                    placeholderText={'Search Deferred'}
+                    onTextChange={this.props.setSearchTermAction}
+                />
+                <RefreshScrollContainer
+                    isRefreshing={this.props.isLoading}
+                    onRefresh={this.props.loadData}
+                    showContent={!_.isEmpty(this.props.data)}
                 >
                     <TouchableOpacity
                         onPress={this.props.loadData}
@@ -69,9 +70,10 @@ Deferred.propTypes = {
     showSearch: PropTypes.bool,
     searchTerm: PropTypes.string,
     data: PropTypes.object,
+
     toggleShowSearch: PropTypes.func,
     loadData: PropTypes.func,
-    setShowSearchBarAction: PropTypes.func
+    setSearchTermAction: PropTypes.func
 };
 
 const styles = StyleSheet.create({
